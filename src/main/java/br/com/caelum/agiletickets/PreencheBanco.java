@@ -19,7 +19,8 @@ public class PreencheBanco {
 	public static void main(String[] args) {
 		EntityManagerFactoryCreator creator = new EntityManagerFactoryCreator();
 		creator.create();
-		EntityManagerCreator managerCreator = new EntityManagerCreator(creator.getInstance());
+		EntityManagerCreator managerCreator = new EntityManagerCreator(
+				creator.getInstance());
 		managerCreator.create();
 		EntityManager manager = managerCreator.getInstance();
 
@@ -42,7 +43,7 @@ public class PreencheBanco {
 		for (int i = 0; i < 10; i++) {
 			Sessao sessao = new Sessao();
 			sessao.setEspetaculo(espetaculo);
-			sessao.setInicio(new DateTime().plusDays(7+i));
+			sessao.setInicio(new DateTime().plusDays(7 + i));
 			sessao.setDuracaoEmMinutos(60 * 3);
 			sessao.setTotalIngressos(100);
 			sessao.setIngressosReservados(i < 5 ? 100 - i : 0);
@@ -53,5 +54,4 @@ public class PreencheBanco {
 		manager.getTransaction().commit();
 		manager.close();
 	}
-	
 }
